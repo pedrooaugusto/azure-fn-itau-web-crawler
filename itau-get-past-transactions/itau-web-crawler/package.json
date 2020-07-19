@@ -1,0 +1,22 @@
+{
+  "name": "itau-web-crawler",
+  "version": "1.0.0",
+  "description": "A webcrawler for itau internet banking website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "webcrawler",
+    "itau",
+    "finances"
+  ],
+  "author": "Pedor Augusto",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "node-fetch": "^2.5.0",
+    "puppeteer-core": "^1.12.2"
+  }
+}

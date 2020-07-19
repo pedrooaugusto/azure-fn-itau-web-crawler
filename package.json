@@ -1,0 +1,17 @@
+{
+  "name": "itau-web-crawler",
+  "version": "0.0.1",
+  "description": "Get your past transactions from Itau Internet Banking",
+  "scripts": {
+    "test": "echo \"No tests yet...\"",
+    "start": "func start --build",
+    "dockerbuild": "sudo docker build -t pedro42hub/itau-web-crawler .",
+    "dockerrun": "sudo docker run -p 7071:80 pedro42hub/itau-web-crawler"
+  },
+  "author": "Pedro Augusto",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "moment": "^2.27.0",
+    "puppeteer": "^5.2.0"
+  }
+}
