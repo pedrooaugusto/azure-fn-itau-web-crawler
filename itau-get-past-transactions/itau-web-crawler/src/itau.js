@@ -51,6 +51,7 @@ class Itau {
         await page.waitFor(1000);
         await page.keyboard.press('Enter');
         await page.waitFor(5000);
+        console.log('[INFO] Waiting for form#frmKey');
         await page.waitForSelector('form#frmKey');
     }
 

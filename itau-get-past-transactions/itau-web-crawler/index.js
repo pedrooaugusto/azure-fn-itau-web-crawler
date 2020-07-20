@@ -8,11 +8,12 @@ async function fetchTransactions (query, credentials) {
 
     //if (mock) return [{ getTransactions: () => [], normalizeData: () => {} }, null];
 
+    let page = null
     try {
         
         const itau = new Itau();
         const browser = await Client.newBrowserInstance(puppeteer, !false);
-        const page = await itau.createPage(browser);
+        page = await itau.createPage(browser);
         
         await page.bringToFront();
         await itau.logIn(page, credentials);
@@ -27,7 +28,11 @@ async function fetchTransactions (query, credentials) {
         return [transactions, null];
 
     } catch(err) {
-        return [null, err];
+        let print = null
+        if (page !== null) {
+            print = await page.screenshot({ path: 'screenshot.png', encoding: 'base64' });
+        }
+        return [null, err, print];
     }
 }
 
@@ -36,10 +41,10 @@ async function getTransactions(period, credentials) {
 
     const query = Query.PARSE(period);
 
-    const [transactions, err] = await fetchTransactions(query, credentials);
+    const [transactions, err, print] = await fetchTransactions(query, credentials);
     
-    if (err) throw err;
-    
+    if (err) throw {err: err.toString(), print};
+
     return transactions.getTransactions();
 }
 
