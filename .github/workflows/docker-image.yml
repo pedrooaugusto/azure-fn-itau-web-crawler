@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1.1.0
+      with:
+        username: ${{ secrets.DOCKER_HUB_LOGIN }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        # registry: myregistry
+        repository: pedro42hub/itau-web-crawler
+        tags: latest
+        # path: ../..  optional, default is .
+        # dockerfile: ./Dockerfile # Path to the Dockerfile (Default is '{path}/Dockerfile')
