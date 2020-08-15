@@ -1,11 +1,7 @@
 ## Itau Web Crawler Azure Function
-<br/>
+> An azure function to retrieve your latest debit card transactions from [itau.com.br](https://itau.com.br).
 
-### Under construction
+
+#### Under Construction
+
 ...
-
-Dont forget to add 
-```
-   "AzureWebJobsStorage": "UseDevelopmentStorage=true"
-```
-to `local.settings.json` and `"authLevel": "anonymous",` to `functions.json`
